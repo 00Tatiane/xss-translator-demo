@@ -1,56 +1,36 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Cybersecurity Tips - PoC CSP Bypass via Google Translate</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self';">
+  <title>PoC Hidden Content + Google Translate</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 2rem;
-    }
     #hiddenContent {
-      position: fixed !important;
-      width: 0 !important;
-      height: 0 !important;
-      overflow: hidden !important;
-      clip: rect(0 0 0 0) !important;
-      clip-path: inset(100%) !important;
-      white-space: nowrap !important;
-      border: 0 !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-      user-select: none !important;
+      position: absolute;
+      left: -9999px; /* Off-screen */
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
     }
-    #arabicMessage {
-      margin-top: 4rem;
-      font-size: 1.2rem;
-      direction: rtl;
-      unicode-bidi: bidi-override;
-      color: darkblue;
-      font-weight: bold;
+    #hiddenBypass {
+      display: none; /* Invisível e não ocupa espaço */
     }
   </style>
 </head>
 <body>
-  <h1>Cybersecurity Tips</h1>
-  <p>Welcome to our site with essential tips to stay safe online.</p>
-  <ul>
-    <li>Use strong passwords.</li>
-    <li>Enable two-factor authentication.</li>
-    <li>Keep your software updated.</li>
-  </ul>
+  <h1>Visible page content</h1>
+  <p>This is the normal content the user sees.</p>
 
-  <p id="hiddenContent" aria-hidden="true">
-    🚨 WARNING: YOUR ACCOUNT HAS BEEN COMPROMISED! VISIT <a href="https://example-malicious-site.com" target="_blank" rel="noopener noreferrer">this site</a> to secure it immediately.
-  </p>
+  <div id="hiddenContent" aria-hidden="true">
+    🚨 ATENÇÃO: SUA CONTA FOI COMPROMETIDA! ACESSE O SITE PARA RESOLVER: 
+    <a href="https://secure-conta-protegida.com">https://secure-conta-protegida.com</a>
+  </div>
 
-  <p id="arabicMessage">
-    الرجاء استخدام وظيفة الترجمة لترجمة هذه الصفحة وحماية حسابك!
-  </p>
+  <!-- Bypass: texto duplicado no atributo title invisível -->
+  <div id="hiddenBypass" title="🚨 ATENÇÃO: SUA CONTA FOI COMPROMETIDA! ACESSE O SITE PARA RESOLVER: https://secure-conta-protegida.com"></div>
 
-  <p>Select all the text on this page and click the Google Translate extension icon to see hidden content revealed.</p>
+  <p>Select all text on the page and click the Google Translate extension to see hidden content appear in the popup.</p>
+
+  <p><strong>هل تتحدث العربية؟</strong> استخدم ملحق الترجمة لترجمة هذا النص.</p>
 </body>
 </html>
+
