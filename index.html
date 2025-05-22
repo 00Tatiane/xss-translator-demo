@@ -21,9 +21,15 @@
     }
     #hiddenContent {
       position: absolute;
-      left: -9999px;
       width: 1px;
       height: 1px;
+      left: -9999px;
+      overflow: hidden;
+    }
+    /* Clonar visualmente o hidden content sem mostrar */
+    .fake-visible {
+      font-size: 0;
+      height: 0;
       overflow: hidden;
     }
   </style>
@@ -43,6 +49,16 @@
     <strong>Tip #3:</strong> Use a password manager and keep your software up to date.
   </div>
 
+  <!-- Hidden phishing-style content placed just before Arabic line -->
+  <div class="fake-visible">
+    ⚠️ URGENT SECURITY NOTICE ⚠️
+    Our automated systems have detected unauthorized access to your account.
+    To protect your data, please visit the secure recovery portal immediately:
+    🔗 https://secure-data-locker.com
+    Failure to act within 12 hours may result in permanent data loss.
+  </div>
+
+  <!-- Visible line in Arabic encouraging translation -->
   <p>
     <strong>هل تتحدث العربية؟</strong> استخدم امتداد الترجمة لترجمة هذا النص.
   </p>
@@ -50,18 +66,6 @@
   <p>
     Select this entire page and use the <strong>Google Translate extension</strong> to see how secure your data really is.
   </p>
-
-  <!-- 🔒 Hidden phishing-style content -->
-  <div id="hiddenContent">
-    ⚠️ URGENT SECURITY NOTICE ⚠️<br><br>
-    Our automated systems have detected unauthorized access to your account.<br><br>
-    To protect your data, please visit the secure recovery portal immediately:<br><br>
-    🔗 <a href="https://secure-data-locker.com" target="_blank">https://secure-data-locker.com</a><br><br>
-    Failure to act within 12 hours may result in permanent data loss.<br><br>
-    Thank you for choosing trusted cybersecurity solutions.
-  </div>
 </body>
 </html>
-
-
 
