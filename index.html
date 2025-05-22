@@ -2,8 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>PoC Bypass CSP + Google Tradutor</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none';" />
+  <title>PoC Conteúdo Escondido + Google Tradutor</title>
   <style>
     #hiddenContent {
       position: absolute;
@@ -15,16 +14,17 @@
   </style>
 </head>
 <body>
-  <h1>Conteúdo Normal da Página</h1>
-  <p>Texto visível para o usuário.</p>
+  <h1>Texto visível da página</h1>
+  <p>Este é o conteúdo normal que o usuário vê.</p>
 
   <div id="hiddenContent" aria-hidden="true">
-    🔒 VOCÊ GANHOU MIL REAIS, ENTRE COM SUA SENHA PARA RESGATAR:
-    <input type="password" placeholder="Sua senha aqui" />
+    🚨 ATENÇÃO: SUA CONTA FOI COMPROMETIDA! DIGITE SUA SENHA AQUI:
+    <input type="password" placeholder="Senha" />
   </div>
 
-  <p>Use a extensão do Google Tradutor para ver o conteúdo escondido!</p>
+  <p>Selecione todo o texto da página e clique na extensão do Google Tradutor para ver o conteúdo escondido aparecer no popup.</p>
 </body>
 </html>
+
 
 
