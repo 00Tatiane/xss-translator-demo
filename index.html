@@ -1,42 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>PoC XSS em extensão de tradução</title>
+  <meta charset="UTF-8" />
+  <title>PoC Bypass CSP + Google Tradutor</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none';" />
+  <style>
+    #hiddenContent {
+      position: absolute;
+      left: -9999px; /* Fora da viewport */
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+  </style>
 </head>
 <body>
-  <h1>Exemplo de vulnerabilidade em extensões</h1>
+  <h1>Conteúdo Normal da Página</h1>
+  <p>Texto visível para o usuário.</p>
 
-  <p>
-    Abaixo está um texto aparentemente inofensivo:
-  </p>
-
-  <div id="texto-traduzivel">
-    &lt;script&gt;
-      let p = document.createElement("p");
-      p.innerHTML = `
-        &lt;div style="background:black;color:lime;font-size:18px;padding:10px;"&gt;
-          VOCÊ GANHOU MIL REAIS, ENTRE COM SUA SENHA:
-        &lt;/div&gt;
-        &lt;input type="password" id="fake-pass" placeholder="Digite sua senha"&gt;
-      `;
-      document.body.appendChild(p);
-      document.getElementById("fake-pass").addEventListener("keydown", function(e) {
-        if (e.key === "Enter") {
-          console.log("Senha digitada:", this.value);
-        }
-      });
-    &lt;/script&gt;
+  <div id="hiddenContent" aria-hidden="true">
+    🔒 VOCÊ GANHOU MIL REAIS, ENTRE COM SUA SENHA PARA RESGATAR:
+    <input type="password" placeholder="Sua senha aqui" />
   </div>
 
-  <!-- Simulador do comportamento de uma extensão vulnerável -->
-  <script>
-    const div = document.getElementById('texto-traduzivel');
-    // Simula uma extensão burra que pega o innerText, assume que é HTML e executa
-    const temp = document.createElement('div');
-    temp.innerHTML = div.innerText;
-    document.body.appendChild(temp);
-  </script>
+  <p>Use a extensão do Google Tradutor para ver o conteúdo escondido!</p>
 </body>
 </html>
 
