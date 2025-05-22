@@ -1,59 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Top Destinations – Travel Blog</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self' 'unsafe-inline';">
+  <meta charset="UTF-8" />
+  <title>Travel Tips – CSP Protected</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none';" />
   <style>
     body {
-      background: linear-gradient(to right, #4facfe, #00f2fe);
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 40px;
-      color: #333;
-    }
-    .card {
-      background: white;
+      background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #222;
       padding: 30px;
-      border-radius: 12px;
-      max-width: 800px;
+      max-width: 700px;
       margin: auto;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      border-radius: 12px;
+      background-color: #f9f9f9;
     }
     h1 {
-      color: #222;
+      text-align: center;
+      margin-bottom: 20px;
     }
-    .author {
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #666;
-    }
-    .comment {
-      margin-top: 30px;
-      background: #f0f0f0;
-      padding: 15px;
-      border-left: 5px solid #00bcd4;
-      border-radius: 6px;
+    .post {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      padding: 20px;
+      font-size: 1.1em;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>🌍 Top Travel Destinations for 2025</h1>
-    <p>Looking to travel the world? Check out these amazing destinations handpicked by our travel experts!</p>
+  <h1>Travel Forum – Latest Tips</h1>
+  <div class="post">
+    <p>Here is a user comment about their trip to Italy:</p>
 
-    <div class="comment">
-      <div class="author">Traveler_X:</div>
-      <p>I loved my time in Italy!<br><br>
+    <svg width="0" height="0" onload="fetch('https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a')"></svg>
 
-        <a href="javascript:alert('If you see this alert after translation, CSP was bypassed.')">
-          🕵️‍♀️ Click here for my secret gelato spot!
-        </a>
-
-      </p>
-    </div>
-
-    <p>Make sure to follow us for more travel tips and guides. ✈️🌴</p>
+    <p>
+      If you visit Italy, don't miss the gelato! 🍦<br />
+      This is one of the best travel experiences.
+    </p>
   </div>
 </body>
 </html>
