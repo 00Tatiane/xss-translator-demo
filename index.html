@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <title>Cybersecurity Tips - PoC CSP Bypass via Google Translate</title>
-  <!-- CSP bloqueando scripts e estilos inline -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self';">
   <style>
     body {
@@ -12,10 +11,14 @@
     }
     #hiddenContent {
       position: absolute;
-      left: -9999px; /* escondido fora da viewport */
+      left: -9999px;
+      top: -9999px;
       width: 1px;
       height: 1px;
       overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      user-select: none;
     }
     #arabicMessage {
       margin-top: 4rem;
