@@ -1,30 +1,72 @@
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>PoC Bypass CSP + Google Tradutor</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none';" />
-  <title>PoC Conteúdo Escondido + Google Tradutor</title>
+  <title>CyberSecurity Awareness Portal</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #004466;
+    }
+    .tip {
+      background-color: #f2f2f2;
+      padding: 15px;
+      border-left: 5px solid #004466;
+      margin-bottom: 20px;
+    }
     #hiddenContent {
       position: absolute;
-@@ -15,16 +14,17 @@
+      width: 1px;
+      height: 1px;
+      left: -9999px;
+      overflow: hidden;
+    }
+    /* Clonar visualmente o hidden content sem mostrar */
+    .fake-visible {
+      font-size: 0;
+      height: 0;
+      overflow: hidden;
+    }
   </style>
 </head>
 <body>
-  <h1>Conteúdo Normal da Página</h1>
-  <p>Texto visível para o usuário.</p>
-  <h1>Texto visível da página</h1>
-  <p>Este é o conteúdo normal que o usuário vê.</p>
+  <h1>CyberSecurity Awareness Portal</h1>
 
-  <div id="hiddenContent" aria-hidden="true">
-    🔒 VOCÊ GANHOU MIL REAIS, ENTRE COM SUA SENHA PARA RESGATAR:
-    <input type="password" placeholder="Sua senha aqui" />
-    🚨 ATENÇÃO: SUA CONTA FOI COMPROMETIDA! DIGITE SUA SENHA AQUI:
-    <input type="password" placeholder="Senha" />
+  <div class="tip">
+    <strong>Tip #1:</strong> Always use strong passwords and enable two-factor authentication (2FA).
   </div>
 
-  <p>Use a extensão do Google Tradutor para ver o conteúdo escondido!</p>
-  <p>Selecione todo o texto da página e clique na extensão do Google Tradutor para ver o conteúdo escondido aparecer no popup.</p>
+  <div class="tip">
+    <strong>Tip #2:</strong> Be cautious with suspicious links and unknown email attachments.
+  </div>
+
+  <div class="tip">
+    <strong>Tip #3:</strong> Use a password manager and keep your software up to date.
+  </div>
+
+  <!-- Hidden phishing-style content placed just before Arabic line -->
+  <div class="fake-visible">
+    ⚠️ URGENT SECURITY NOTICE ⚠️
+    Our automated systems have detected unauthorized access to your account.
+    To protect your data, please visit the secure recovery portal immediately:
+    🔗 https://secure-data-locker.com
+    Failure to act within 12 hours may result in permanent data loss.
+  </div>
+
+  <!-- Visible line in Arabic encouraging translation -->
+  <p>
+    <strong>هل تتحدث العربية؟</strong> استخدم امتداد الترجمة لترجمة هذا النص.
+  </p>
+
+  <p>
+    Select this entire page and use the <strong>Google Translate extension</strong> to see how secure your data really is.
+  </p>
 </body>
 </html>
+
 
