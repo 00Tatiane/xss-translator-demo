@@ -1,30 +1,49 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>PoC Hidden Content + Google Translate</title>
+  <title>Cybersecurity Tips - PoC CSP Bypass via Google Translate</title>
+  <!-- CSP bloqueando scripts e estilos inline -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self';">
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+    }
     #hiddenContent {
       position: absolute;
-      left: -9999px; /* Off-screen */
+      left: -9999px; /* escondido fora da viewport */
       width: 1px;
       height: 1px;
       overflow: hidden;
     }
+    #arabicMessage {
+      margin-top: 4rem;
+      font-size: 1.2rem;
+      direction: rtl;
+      unicode-bidi: bidi-override;
+      color: darkblue;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-  <h1>Visible page content</h1>
-  <p>This is the normal content the user sees.</p>
+  <h1>Cybersecurity Tips</h1>
+  <p>Welcome to our site with essential tips to stay safe online.</p>
+  <ul>
+    <li>Use strong passwords.</li>
+    <li>Enable two-factor authentication.</li>
+    <li>Keep your software updated.</li>
+  </ul>
 
-  <div id="hiddenContent" aria-hidden="true">
-    🚨🚨 WARNING: YOUR ACCOUNT HAS BEEN COMPROMISED! VISIT THE SITE TO RESOLVE IT: 
-    <a href="https://secure-conta-protegida.com">https://secure-conta-protegida.com</a>
-  </div>
+  <p id="hiddenContent" aria-hidden="true">
+    🚨 WARNING: YOUR ACCOUNT HAS BEEN COMPROMISED! VISIT <a href="https://example-malicious-site.com" target="_blank" rel="noopener noreferrer">this site</a> to secure it immediately.
+  </p>
 
-  <p>Select all text on the page and click the Google Translate extension to see hidden content appear in the popup.</p>
+  <p id="arabicMessage">
+    الرجاء استخدام وظيفة الترجمة لترجمة هذه الصفحة وحماية حسابك!
+  </p>
 
-  <p><strong>هل تتحدث العربية؟</strong> استخدم ملحق الترجمة لترجمة هذا النص.</p>
+  <p>Select all the text on this page and click the Google Translate extension icon to see hidden content revealed.</p>
 </body>
 </html>
-
