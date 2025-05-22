@@ -1,49 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>CyberSecurity Tips</title>
+  <title>PoC Conteúdo Escondido + Google Tradutor</title>
   <style>
-    body {
-      font-family: sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-    }
-    .hidden-msg {
-      font-size: 0;
-      color: transparent;
-      height: 0;
+    #hiddenContent {
+      position: absolute;
+      left: -9999px; /* Fora da viewport */
+      width: 1px;
+      height: 1px;
       overflow: hidden;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to CyberSecurity Tips</h1>
-  <p>
-    Here are some basic tips to stay safe online:
-  </p>
-  <ul>
-    <li>Use strong and unique passwords.</li>
-    <li>Don’t click suspicious links.</li>
-    <li>Enable two-factor authentication.</li>
-  </ul>
+  <h1>Texto visível da página</h1>
+  <p>Este é o conteúdo normal que o usuário vê.</p>
 
-  <!-- MENSAGEM ESCONDIDA QUE APARECE NO POPUP -->
-  <div class="hidden-msg">
-    ⚠️ URGENT SECURITY WARNING ⚠️<br><br>
-    We detected suspicious activity in your account.<br>
-    Please visit: https://secure-check-now.com<br>
-    to verify your identity and avoid account lockout.
+  <div id="hiddenContent" aria-hidden="true">
+    🚨 ATENÇÃO: SUA CONTA FOI COMPROMETIDA! DIGITE SUA SENHA AQUI:
+    <input type="password" placeholder="Senha" />
   </div>
 
-  <!-- TEXTO VISÍVEL INCENTIVANDO O USO DO TRADUTOR -->
-  <p>
-    <strong>هل تتحدث العربية؟</strong> استخدم امتداد الترجمة لترجمة هذا النص.
-  </p>
-
-  <p>
-    Select this content and use the Google Translate extension for full translation.
-  </p>
+  <p>Selecione todo o texto da página e clique na extensão do Google Tradutor para ver o conteúdo escondido aparecer no popup.</p>
 </body>
 </html>
-
