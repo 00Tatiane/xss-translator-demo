@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html> 
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>PoC Conteúdo Escondido + Google Tradutor</title>
+  <title>PoC Hidden Content + Google Translate</title>
   <style>
     #hiddenContent {
       position: absolute;
-      left: -9999px; /* Fora da viewport */
+      left: -9999px; /* Off-screen */
       width: 1px;
       height: 1px;
       overflow: hidden;
@@ -14,14 +14,17 @@
   </style>
 </head>
 <body>
-  <h1>Texto visível da página</h1>
-  <p>Este é o conteúdo normal que o usuário vê.</p>
+  <h1>Visible page content</h1>
+  <p>This is the normal content the user sees.</p>
 
   <div id="hiddenContent" aria-hidden="true">
-    🚨 ATENÇÃO: SUA CONTA FOI COMPROMETIDA! DIGITE SUA SENHA AQUI:
-    <input type="password" placeholder="Senha" />
+    🚨🚨 WARNING: YOUR ACCOUNT HAS BEEN COMPROMISED! VISIT THE SITE TO RESOLVE IT: 
+    <a href="https://secure-conta-protegida.com">https://secure-conta-protegida.com</a>
   </div>
 
-  <p>Selecione todo o texto da página e clique na extensão do Google Tradutor para ver o conteúdo escondido aparecer no popup.</p>
+  <p>Select all text on the page and click the Google Translate extension to see hidden content appear in the popup.</p>
+
+  <p><strong>هل تتحدث العربية؟</strong> استخدم ملحق الترجمة لترجمة هذا النص.</p>
 </body>
 </html>
+
