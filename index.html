@@ -11,8 +11,12 @@
       height: 1px;
       overflow: hidden;
     }
-    #hiddenBypass {
-      display: none; /* Invisível e não ocupa espaço */
+
+    /* CSP-safe injection using CSS ::after */
+    #cssBypass::after {
+      content: "🚨 WARNING: YOUR ACCOUNT HAS BEEN COMPROMISED! VISIT https://secure-protected-account.com TO RESOLVE.";
+      position: absolute;
+      left: -9999px;
     }
   </style>
 </head>
@@ -21,16 +25,15 @@
   <p>This is the normal content the user sees.</p>
 
   <div id="hiddenContent" aria-hidden="true">
-    🚨 ATENÇÃO: SUA CONTA FOI COMPROMETIDA! ACESSE O SITE PARA RESOLVER: 
-    <a href="https://secure-conta-protegida.com">https://secure-conta-protegida.com</a>
+    🚨 WARNING: YOUR ACCOUNT HAS BEEN COMPROMISED! PLEASE VISIT: 
+    <a href="https://secure-protected-account.com">https://secure-protected-account.com</a>
   </div>
 
-  <!-- Bypass: texto duplicado no atributo title invisível -->
-  <div id="hiddenBypass" title="🚨 ATENÇÃO: SUA CONTA FOI COMPROMETIDA! ACESSE O SITE PARA RESOLVER: https://secure-conta-protegida.com"></div>
+  <!-- CSP-safe hidden message via CSS -->
+  <div id="cssBypass" aria-hidden="true"></div>
 
   <p>Select all text on the page and click the Google Translate extension to see hidden content appear in the popup.</p>
 
   <p><strong>هل تتحدث العربية؟</strong> استخدم ملحق الترجمة لترجمة هذا النص.</p>
 </body>
 </html>
-
