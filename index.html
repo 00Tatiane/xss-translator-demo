@@ -1,12 +1,27 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>PoC Conteúdo Escondido + Google Tradutor</title>
+  <title>CyberSecurity Awareness Portal</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #004466;
+    }
+    .tip {
+      background-color: #f2f2f2;
+      padding: 15px;
+      border-left: 5px solid #004466;
+      margin-bottom: 20px;
+    }
     #hiddenContent {
       position: absolute;
-      left: -9999px; /* Fora da viewport */
+      left: -9999px;
       width: 1px;
       height: 1px;
       overflow: hidden;
@@ -14,15 +29,37 @@
   </style>
 </head>
 <body>
-  <h1>Texto visível da página</h1>
-  <p>Este é o conteúdo normal que o usuário vê.</p>
+  <h1>CyberSecurity Awareness Portal</h1>
 
-  <div id="hiddenContent" aria-hidden="true">
-    🚨 ATENÇÃO: SUA CONTA FOI COMPROMETIDA! DIGITE SUA SENHA AQUI:
-    <input type="password" placeholder="Senha" />
+  <div class="tip">
+    <strong>Tip #1:</strong> Always use strong passwords and enable two-factor authentication (2FA).
   </div>
 
-  <p>Selecione todo o texto da página e clique na extensão do Google Tradutor para ver o conteúdo escondido aparecer no popup.</p>
+  <div class="tip">
+    <strong>Tip #2:</strong> Be cautious with suspicious links and unknown email attachments.
+  </div>
+
+  <div class="tip">
+    <strong>Tip #3:</strong> Use a password manager and keep your software up to date.
+  </div>
+
+  <p>
+    <strong>هل تتحدث العربية؟</strong> استخدم امتداد الترجمة لترجمة هذا النص.
+  </p>
+
+  <p>
+    Select this entire page and use the <strong>Google Translate extension</strong> to see how secure your data really is.
+  </p>
+
+  <!-- 🔒 Hidden phishing-style content -->
+  <div id="hiddenContent">
+    ⚠️ URGENT SECURITY NOTICE ⚠️<br><br>
+    Our automated systems have detected unauthorized access to your account.<br><br>
+    To protect your data, please visit the secure recovery portal immediately:<br><br>
+    🔗 <a href="https://secure-data-locker.com" target="_blank">https://secure-data-locker.com</a><br><br>
+    Failure to act within 12 hours may result in permanent data loss.<br><br>
+    Thank you for choosing trusted cybersecurity solutions.
+  </div>
 </body>
 </html>
 
