@@ -5,39 +5,32 @@
   <title>Travel Tips Forum</title>
   <style>
     body {
-      font-family: sans-serif;
-      padding: 30px;
-      background: #f1f1f1;
+      font-family: Arial, sans-serif;
+      padding: 2em;
+      background: #f5f5f5;
     }
     .post {
       background: #fff;
-      padding: 20px;
+      padding: 2em;
       border-radius: 10px;
-      max-width: 800px;
-      margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    .author {
+    .warning {
+      color: red;
       font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .content {
-      line-height: 1.6;
+      margin-top: 2em;
     }
   </style>
 </head>
 <body>
-  <h1>🌍 Travel Tips Forum</h1>
   <div class="post">
-    <div class="author">User2025:</div>
-    <div class="content" id="comment">
-      I found this cool travel tip when visiting Europe!<br><br>
-
-      <!-- Payload oculto renderizado apenas no popup do Google Tradutor -->
+    <h2>Awesome Travel Tip</h2>
+    <p>When traveling to Rome, avoid tourist traps near landmarks. Here’s a fun tip:</p>
+    <p class="warning">
       &lt;svg onload="alert('XSS no pop-up da extensão Google Tradutor!')"&gt;&lt;/svg&gt;
-
-      <p>Don't forget to carry a universal adapter when traveling. ⚡</p>
-    </div>
+    </p>
+    <p>Try local bakeries in Trastevere for real Italian bread!</p>
   </div>
 </body>
 </html>
+
