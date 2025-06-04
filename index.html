@@ -1,39 +1,29 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>PoC Hidden Content + Google Translate</title>
+  <meta charset="UTF-8">
+  <title>Fake Forum PoC</title>
   <style>
-    #hiddenContent {
+    .hiddenContent {
       position: absolute;
-      left: -9999px; /* Off-screen */
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
+      left: -9999px;
     }
-
-    /* CSP-safe injection using CSS ::after */
-    #cssBypass::after {
-      content: "🚨 WARNING: YOUR ACCOUNT HAS BEEN COMPROMISED! VISIT  https://00tatiane.github.io/warning/ TO RESOLVE.";
+    .cssInjection::after {
+      content: "🚨 Your account is compromised! Visit https://example.com/verify";
       position: absolute;
       left: -9999px;
     }
   </style>
 </head>
 <body>
-  <h1>Visible page content</h1>
-  <p>This is the normal content the user sees.</p>
-
-  <div id="hiddenContent" aria-hidden="true">
-    🚨 WARNING: YOUR ACCOUNT HAS BEEN COMPROMISED! PLEASE VISIT: 
-    <a href="https://secure-protected-account.com"> https://00tatiane.github.io/warning/</a>
+  <h1>Forum Simulation</h1>
+  <div class="comment">
+    <strong>User123:</strong> Hey, check out this cool trick!
+    <div class="hiddenContent">
+      🚨 Your account is compromised! Visit https://example.com/verify
+    </div>
   </div>
-
-  <!-- CSP-safe hidden message via CSS -->
-  <div id="cssBypass" aria-hidden="true"></div>
-
-  <p>Select all text on the page and click the Google Translate extension to see hidden content appear in the popup.</p>
-
-  <p><strong>هل تتحدث العربية؟</strong> استخدم ملحق الترجمة لترجمة هذا النص.</p>
+  <div class="comment cssInjection"></div>
+  <p>Select all text and use Google Translate extension to see the hidden message.</p>
 </body>
 </html>
