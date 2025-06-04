@@ -1,29 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Fake Forum PoC</title>
-  <style>
-    .hiddenContent {
-      position: absolute;
-      left: -9999px;
-    }
-    .cssInjection::after {
-      content: "🚨 Your account is compromised!! Visit https://example.com/verify";
-      position: absolute;
-      left: -9999px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>PoC</title>
+<style>
+body {
+  visibility: hidden;
+}
+body::after {
+  content: "🚨 Your Google Account is at risk! Please visit: https://phishingsite.com";
+  visibility: visible;
+  font-size: 20px;
+  color: red;
+}
+</style>
 </head>
 <body>
-  <h1>Forum Simulation</h1>
-  <div class="comment">
-    <strong>User123:</strong> Hey, check out this cool trick!
-    <div class="hiddenContent">
-      🚨 Your account is compromised! Visit https://example.com/verify
-    </div>
-  </div>
-  <div class="comment cssInjection"></div>
-  <p>Select all text and use Google Translate extension to see the hidden message.</p>
+<p>This is hidden text.</p>
 </body>
 </html>
