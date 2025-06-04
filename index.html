@@ -1,41 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>PoC - CSP Bypass via Google Translator</title>
+  <meta charset="UTF-8" />
+  <title>Translating Life — The Game</title>
   <style>
-    /* O texto normal aparece para o usuário na página */
-    #normalText {
-      font-size: 20px;
-      color: black;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #282c34, #3a3f47);
+      color: #fff;
+      margin: 0;
+      padding: 0;
     }
-
-    /* Este CSS usa ::after para injetar texto somente visível para a extensão do Google Tradutor */
-    #translatorBypass::after {
-      content: "🚨 ALERT: Your Google Account has been compromised! Visit https://phishingsite.com to resolve.";
+    header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      color: #ffcc00;
+      border-bottom: 2px solid #ffcc00;
+    }
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    h2 {
+      color: #ffcc00;
+    }
+    p {
+      line-height: 1.6;
+    }
+    .hint {
+      font-style: italic;
+      color: #ffcc00;
+    }
+    .game-instructions {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    /* Hidden message using CSS ::after bypass */
+    #hiddenClue::after {
+      content: "🚨 Congratulations! Step 2: Go to https://example.com/step2 and find the next hidden message! 🚨";
       color: red;
       font-size: 24px;
+      font-weight: bold;
     }
-
-    /* Torna o #translatorBypass invisível para o usuário (sai da tela) */
-    #translatorBypass {
+    #hiddenClue {
       position: absolute;
       left: -9999px;
-      height: 1px;
       overflow: hidden;
     }
-
-    /* CSP bypass: pseudoelementos CSS não são bloqueados por políticas padrão de CSP */
   </style>
 </head>
 <body>
-  <div id="normalText">
-    <h1>Welcome to the Forum!</h1>
-    <p>This is a normal page with forum content and discussions.</p>
-  </div>
-
-  <div id="translatorBypass" aria-hidden="true"></div>
-
-  <p>Select all text (Ctrl+A) and use the Google Translate extension to translate this page to see the hidden phishing message in the pop-up.</p>
+  <header>Translating Life — The Game</header>
+  <main>
+    <h2>Welcome to the Adventure!</h2>
+    <p>
+      Welcome, explorer! In this game, you’ll become a digital hunter, searching for hidden messages across websites.
+      Your mission: follow the clues, translate hidden messages, and unravel the mystery!
+    </p>
+    <div class="game-instructions">
+      <h3>How to Play:</h3>
+      <ol>
+        <li>On each page, there might be hidden instructions—use Google Translate extension to reveal them!</li>
+        <li>Highlight all the text on the page (Ctrl+A) and click the Translate icon in your browser.</li>
+        <li>The hidden message will appear in the Google Translate pop-up window—trust me, it’s there!</li>
+        <li>Follow the clue to the next page and continue your journey.</li>
+      </ol>
+      <p class="hint">Tip: The first clue is hidden in this very page. Try it now!</p>
+    </div>
+    <div id="hiddenClue" aria-hidden="true"></div>
+  </main>
 </body>
 </html>
