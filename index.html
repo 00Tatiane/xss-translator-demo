@@ -26,6 +26,7 @@
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      position: relative;
     }
     h2 {
       color: #ffcc00;
@@ -44,27 +45,11 @@
       margin-top: 20px;
     }
 
-    /* Mensagem oculta usando CSS ::after (bypass para CSP) */
-    #hiddenClue::after {
+    /* CSP-safe injection using CSS ::after */
+    #cssBypass::after {
       content: "🚨 Congratulations! Step 2: Go to https://example.com/step2 and find the next hidden message! 🚨";
-      color: red;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    #hiddenClue {
       position: absolute;
-      left: 0;
-      top: 0;
-      opacity: 0;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-
-    /* Mensagem oculta fallback */
-    #hiddenContent {
-      display: none;
+      left: -9999px;
     }
   </style>
 </head>
@@ -86,13 +71,9 @@
       </ol>
       <p class="hint">Tip: The first clue is hidden in this very page. Try it now!</p>
     </div>
-    <!-- Mensagem oculta fallback para navegadores sem suporte CSS -->
-    <div id="hiddenContent" aria-hidden="true">
-      🚨 Congratulations! Step 2: Go to 
-      <a href="https://example.com/step2">https://example.com/step2</a>
-      and find the next hidden message! 🚨
-    </div>
-    <div id="hiddenClue" aria-hidden="true"></div>
+
+    <!-- Elemento que esconde a mensagem via ::after -->
+    <div id="cssBypass" aria-hidden="true"></div>
   </main>
 </body>
 </html>
