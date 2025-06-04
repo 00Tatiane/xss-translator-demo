@@ -39,11 +39,17 @@
       color: #ffcc00;
     }
 
-    /* CSP-safe injection using CSS ::after */
-    #cssBypass::after {
-      content: "🚨 Congratulations! Step 2: Go to https://example.com/step2 and find the next hidden message! 🚨";
+    /* Mensagem invisível mas traduzível */
+    #cssBypass {
       position: absolute;
-      left: -9999px;
+      left: 0;
+      top: 0;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+      user-select: none;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -57,7 +63,9 @@
     </p>
 
     <!-- Mensagem oculta pertinho do conteúdo que será traduzido -->
-    <div id="cssBypass" aria-hidden="true"></div>
+    <div id="cssBypass" aria-hidden="true">
+      🚨 Congratulations! Step 2: Go to https://example.com/step2 and find the next hidden message! 🚨
+    </div>
 
     <div class="game-instructions">
       <h3>How to Play:</h3>
