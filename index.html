@@ -39,16 +39,16 @@
       color: #ffcc00;
     }
 
-    /* Mensagem invisível mas traduzível */
+    /* Mensagem invisível mas traduzível, grande e vermelha */
     #cssBypass {
       position: absolute;
-      left: 0;
+      left: -9999px;    /* fora da tela */
       top: 0;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      opacity: 0;
-      user-select: none;
+      font-size: 3rem;
+      color: red;
+      font-weight: bold;
+      width: 700px;    /* evita quebra estranha no popup */
+      user-select: text; /* permite seleção */
       pointer-events: none;
     }
   </style>
@@ -64,7 +64,7 @@
 
     <!-- Mensagem oculta pertinho do conteúdo que será traduzido -->
     <div id="cssBypass" aria-hidden="true">
-      🚨 Congratulations! Step 2: Go to https://example.com/step2 and find the next hidden message! 🚨
+      🚨 Congratulations! Step 2: Go to https://00tatiane.github.io/tradutor/ and find the next hidden message! 🚨
     </div>
 
     <div class="game-instructions">
