@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>PoC</title>
-<style>
-body {
-  visibility: hidden;
-}
-body::after {
-  content: "🚨 Your Google Account is at risk! Please visit: https://phishingsite.com";
-  visibility: visible;
-  font-size: 20px;
-  color: red;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>PoC - CSP Bypass via Google Translator</title>
+  <style>
+    /* O texto normal aparece para o usuário na página */
+    #normalText {
+      font-size: 20px;
+      color: black;
+    }
+
+    /* Este CSS usa ::after para injetar texto somente visível para a extensão do Google Tradutor */
+    #translatorBypass::after {
+      content: "🚨 ALERT: Your Google Account has been compromised! Visit https://phishingsite.com to resolve.";
+      color: red;
+      font-size: 24px;
+    }
+
+    /* Torna o #translatorBypass invisível para o usuário (sai da tela) */
+    #translatorBypass {
+      position: absolute;
+      left: -9999px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    /* CSP bypass: pseudoelementos CSS não são bloqueados por políticas padrão de CSP */
+  </style>
 </head>
 <body>
-<p>This is hidden text.</p>
+  <div id="normalText">
+    <h1>Welcome to the Forum!</h1>
+    <p>This is a normal page with forum content and discussions.</p>
+  </div>
+
+  <div id="translatorBypass" aria-hidden="true"></div>
+
+  <p>Select all text (Ctrl+A) and use the Google Translate extension to translate this page to see the hidden phishing message in the pop-up.</p>
 </body>
 </html>
