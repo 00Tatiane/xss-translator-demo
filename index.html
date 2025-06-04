@@ -38,12 +38,6 @@
       font-style: italic;
       color: #ffcc00;
     }
-    .game-instructions {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 15px;
-      border-radius: 8px;
-      margin-top: 20px;
-    }
 
     /* CSP-safe injection using CSS ::after */
     #cssBypass::after {
@@ -61,6 +55,10 @@
       Welcome, explorer! In this game, you’ll become a digital hunter, searching for hidden messages across websites.
       Your mission: follow the clues, translate hidden messages, and unravel the mystery!
     </p>
+
+    <!-- Mensagem oculta pertinho do conteúdo que será traduzido -->
+    <div id="cssBypass" aria-hidden="true"></div>
+
     <div class="game-instructions">
       <h3>How to Play:</h3>
       <ol>
@@ -71,9 +69,6 @@
       </ol>
       <p class="hint">Tip: The first clue is hidden in this very page. Try it now!</p>
     </div>
-
-    <!-- Elemento que esconde a mensagem via ::after -->
-    <div id="cssBypass" aria-hidden="true"></div>
   </main>
 </body>
 </html>
